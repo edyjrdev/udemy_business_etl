@@ -9,6 +9,7 @@ O pipeline automatiza o fluxo de dados seguindo a arquitetura de medalhão (Bron
 ### Funcionalidades Principais
 *   **Extração Incremental:** Baixa dados de cursos da API da Udemy com paginação e cache local para evitar requisições duplicadas.
 *   **Tradução Automática:** Traduz categorias, idiomas e tópicos utilizando a API do Google Translate, com sistema de cache para otimizar custos e tempo.
+*   **Relatório Consolidado:** Gera um arquivo Excel (`udemy_consolidado.xlsx`) com todos os dados integrados para análise.
 *   **Orquestração:** Script centralizado para executar todas as etapas do pipeline sequencialmente.
 *   **Gerenciamento de Dependências:** Utiliza Poetry.
 
@@ -77,14 +78,25 @@ O script exibirá o progresso de cada etapa e o tempo de execução.
 
 ## 📂 Estrutura de Pastas
 
-*   `src/`: Scripts Python do pipeline (extract, transform, translate, etc.).
-*   `model/`: Armazenamento de dados locais.
-    *   `0_bronze/`:
-        *   `1_page/`: Arquivos JSON brutos da API (paginados).
-        *   `translation_cache.json`: Banco de dados local de termos traduzidos.
-    *   `1_silver/`: Dimensões tratadas e traduzidas (ex: `categoria.json`, `topico.json`).
-*   `auth/`: Configurações de autenticação (ignorado no git).
-*   `pipeline.py`: Orquestrador.
+A estrutura do projeto é organizada para separar lógica, dados e configurações:
+
+*   `src/`: Contém o código fonte dos scripts do pipeline.
+    *   `extract.py`: Extração da API.
+    *   `transform.py`: Limpeza e normalização.
+    *   `translate.py`: Tradução de termos.
+    *   `load.py`: Carga de dados.
+    *   `scrap.py` / `scrap_update.py`: Web scraping complementar.
+*   `model/`: Data Lake local (armazenamento de arquivos).
+    *   `0_bronze/`: Dados brutos.
+        *   `1_page/`: Respostas JSON paginadas da API.
+        *   `translation_cache.json`: Cache de traduções.
+    *   `1_silver/`: Dados processados e normalizados (Dimensões).
+    *   `2_gold/`: Dados agregados e finais.
+        *   `udemy_consolidado.xlsx`: [📥 Baixar Amostra](model/2_gold/udemy_consolidado.xlsx)
+*   `auth/`: Credenciais e segurança (não versionado).
+    *   `credencial.json`: Chaves de acesso à API.
+*   `pipeline.py`: Script principal de orquestração.
+*   `pyproject.toml`: Definição de dependências do projeto.
 
 ---
 Desenvolvido para automação de dados corporativos da Udemy.
