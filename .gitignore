@@ -1,2 +1,6 @@
 auth/credencial.json
 model/
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
