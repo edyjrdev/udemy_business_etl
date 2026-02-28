@@ -1,7 +1,7 @@
 # Extrair dados da API da Udemy Business
 # Etapa 01 courses
 # Etapa 02 students
-from src.auth import Auth
+from auth import Auth
 import requests
 import json
 import os
@@ -34,11 +34,9 @@ if response.status_code == 200:
     pagina_atual = 1
     data = response.json()
     total_cursos = data['count']
-    print(f'Total de cursos: {total_cursos}')
     proxima_pagina = data['next']
-    print(f'Proxima pagina: {proxima_pagina}')
     lista_cursos = data['results']
-    print(f'Total Cursos Pagina: {len(lista_cursos)}')
+    print(f'Total de cursos: {total_cursos} | Proxima pagina: {proxima_pagina} | Total Cursos Pagina: {len(lista_cursos)}')
     with open(file=os.path.join(pages_dir, f'pag_{pagina_atual:03}.json'), mode='w', encoding='utf-8') as file_json:
         json.dump(lista_cursos, file_json, ensure_ascii=False, indent=4)
         print(f'Arquivo salvo {file_json.name}')

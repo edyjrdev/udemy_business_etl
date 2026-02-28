@@ -61,7 +61,6 @@ with open(file=path_arquivo_cursos, mode='r', encoding='utf-8') as file_json:
                 else:
                     print(f'Arquivo já existe {path_arquivo_scrap}')
             
-
             case 403:
                 print('Acesso Negado')
             case _:
