@@ -13,18 +13,19 @@ if not os.path.exists(dim_gold):
 # mapper de colunas
 map_file_hearders ={
     "categoria_curso.json":{0:'id_curso', 1:'categoria'},
-    "categoria.json":{0:'categoria'},
+    "categoria.json":{0:'categoria',1:'categoria_ptbr'},
     "curso.json":{0:'id',1:'titulo',2: 'url',3: 'aulas',4:'videos',5: 'idioma', 6:'categoria',7: 'subcategoria',8: 'quizes',
     9: 'testes',10: 'tem_legenda',11: 'video_duracao',12: 'data_atualizacao',13: 'nivel',
     14: 'chamada',15: 'descricao',16: 'nota',17: 'num_alunos',18: 'num_avaliacoes',19: 'valor',20: 'moeda'},
     "instrutor_curso.json":{0:'id_curso',1: 'instrutor'},
     "instrutor.json":{0:'instrutor'},
     "idioma_audio_curso.json":{0:'id_curso',1: 'idioma_audio'},
-    "idioma_audio.json":{0:'idioma_audio'},
+    "idioma_audio.json":{0:'idioma_audio',1:'titulo',2:'english_title',3:'idioma_audio_ptbr'},
     "idioma_legenda_curso.json":{1:'id_curso',1: 'idioma_legenda'},
-    "idioma_legenda.json":{0:'idioma_legenda'},
+    "idioma_legenda.json":{0:'idioma_legenda', 1:'idioma_legenda_ptbr'},
     "topico_curso.json":{0:'id_curso',1:'topico'},
-    "topico.json":{0:'id_topico',1:'titulo',2:'url'}
+    "topico_curso.json":{0:'id_curso',1:'topico'},
+    "topico.json":{0:'id_topico',1:'titulo',2:'url',3:'titulo_ptbr'}
 }
 
 

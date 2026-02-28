@@ -7,15 +7,29 @@ import json
 import os
 import pandas as pd
 import base64
+import time
+import sys
 
 creds = Auth().start()
 curso_por_pagina = 100
 TIMEOUT_API = 300
+CACHE_DAYS = 1
 
 # out
 pages_dir = 'model/0_bronze/1_page'
 if not os.path.exists(pages_dir):
     os.makedirs(pages_dir)
+
+# Check cache
+if os.path.exists(pages_dir):
+    files = [f for f in os.listdir(pages_dir) if f.endswith('.json')]
+    if files:
+        # Check modification time of the first file
+        file_path = os.path.join(pages_dir, files[0])
+        file_mod_time = os.path.getmtime(file_path)
+        if (time.time() - file_mod_time) < (CACHE_DAYS * 86400):
+            print(f'Cache válido (menos de {CACHE_DAYS} dias). Pulando extração.')
+            sys.exit(0)
 
 base_api = f"https://{creds['account_name']}.udemy.com/api-2.0/organizations/{creds['account_id']}"
 endpoints = {

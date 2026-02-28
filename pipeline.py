@@ -2,7 +2,7 @@
 import os
 import time
 
-pipeline_files = ['extract.py', 'transform.py', 'load.py', 'scrap.py',  'scrap_update.py']
+pipeline_files = ['extract.py', 'transform.py', 'translate.py', 'load.py', 'scrap.py',  'scrap_update.py']
 pipeline_path = 'src'
 
 start_pipeline = time.time()
