@@ -16,7 +16,7 @@ map_file_hearders ={
     "categoria.json":{0:'categoria',1:'categoria_ptbr'},
     "curso.json":{0:'id',1:'titulo',2: 'url',3: 'aulas',4:'videos',5: 'idioma', 6:'categoria',7: 'subcategoria',8: 'quizes',
     9: 'testes',10: 'tem_legenda',11: 'video_duracao',12: 'data_atualizacao',13: 'nivel',
-    14: 'chamada',15: 'descricao',16: 'nota',17: 'num_alunos',18: 'num_avaliacoes',19: 'valor',20: 'moeda'},
+    14: 'chamada',15: 'descricao',16: 'nota',17: 'num_alunos',18: 'num_avaliacoes',19: 'valor',20: 'moeda',21: 'data_extracao'},
     "instrutor_curso.json":{0:'id_curso',1: 'instrutor'},
     "instrutor.json":{0:'instrutor'},
     "idioma_audio_curso.json":{0:'id_curso',1: 'idioma_audio'},

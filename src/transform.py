@@ -1,5 +1,6 @@
 import os
 import json
+import datetime
 from dataclasses import dataclass
 import dataclasses
 # in
@@ -38,6 +39,7 @@ class Curso:
     num_avaliacoes: int = 0
     valor: float = 0.0
     moeda: str = ''
+    data_extracao:datetime = datetime.datetime.now()
 
 lista_cursos = []
 set_instrutor = set()
