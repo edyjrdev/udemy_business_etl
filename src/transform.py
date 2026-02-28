@@ -39,7 +39,7 @@ class Curso:
     num_avaliacoes: int = 0
     valor: float = 0.0
     moeda: str = ''
-    data_extracao:datetime = datetime.datetime.now()
+    data_extracao:str = datetime.datetime.now().strftime('%d-%m-%Y')
 
 lista_cursos = []
 set_instrutor = set()
