@@ -15,8 +15,8 @@ class Auth:
                 cred = data[0]
                 self.credential['clientid'] = cred['rest_client_id']
                 self.credential['secretid']= cred['rest_client_secret']
-                self.credential['account_name'] = cred['ACCOUNT_NAME']
-                self.credential['account_id'] = cred['ACCOUNT_ID']
+                self.credential['account_name'] = cred['account_name']
+                self.credential['account_id'] = cred['account_id']
                 return self.credential   
         except Exception as e:
             return {}
