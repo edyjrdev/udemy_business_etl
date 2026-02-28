@@ -10,10 +10,10 @@ class CursoScrap:
     num_alunos: int
     num_avaliacoes: int
     valor: float
-    valor_moeda: str
+    moeda: str
 
 pages_dim = 'model/1_silver' # pasta com cursos
-pages_scrap = 'model/3_scrap'
+pages_scrap = 'model/0_bronze/3_scrap'
 if not os.path.exists(pages_scrap):
     os.makedirs(pages_scrap)
 
@@ -47,7 +47,7 @@ with open(file=path_arquivo_cursos, mode='r', encoding='utf-8') as file_json:
                     num_alunos=data['num_students'],
                     num_avaliacoes=data['num_reviews'],
                     valor=purchase['amount'],
-                    valor_moeda=purchase['currency']
+                    moeda=purchase['currency']
                 )
                 print(f'Curso: {curso_scrap.url} - Nota: {curso_scrap.nota} - Alunos: {curso_scrap.num_alunos}')
                 cursos_scrap.append(curso_scrap)

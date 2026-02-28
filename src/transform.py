@@ -33,6 +33,11 @@ class Curso:
     nivel:str
     chamada:str
     descricao:str
+    nota: float = 0.0
+    num_alunos: int = 0
+    num_avaliacoes: int = 0
+    valor: float = 0.0
+    moeda: str = ''
 
 lista_cursos = []
 set_instrutor = set()
@@ -83,8 +88,7 @@ if os.path.exists(pages_pag):
                     data_atualizacao=curso['last_update_date'],
                     nivel=curso['level'],
                     chamada=curso['headline'],
-                    descricao=curso['description']
-   
+                    descricao=curso['description']                 
                 )
                 
                 arquivo_nome = f'{dado_curso.id:03}.json'
