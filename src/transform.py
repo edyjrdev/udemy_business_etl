@@ -3,10 +3,15 @@ import json
 import datetime
 from dataclasses import dataclass
 import dataclasses
+
+
 # in
 pages_pag = 'model/0_bronze/1_page'
 # out
 pages_cur = 'model/0_bronze/2_course'
+
+
+   
 
 if not os.path.exists(pages_cur):
     os.makedirs(pages_cur)
@@ -14,7 +19,6 @@ if not os.path.exists(pages_cur):
 pages_dim = 'model/1_silver'
 if not os.path.exists(pages_dim):
     os.makedirs(pages_dim)
-
 
 @dataclass
 class Curso:

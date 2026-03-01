@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import json
 
 sep_csv ='|'
 enconding = 'utf-8'
@@ -9,6 +10,8 @@ pages_dim = 'model/1_silver'
 dim_gold = 'model/2_gold'
 if not os.path.exists(dim_gold):
     os.makedirs(dim_gold)
+
+
 
 # mapper de colunas
 map_file_hearders ={
@@ -25,7 +28,8 @@ map_file_hearders ={
     "idioma_legenda.json":{0:'idioma_legenda', 1:'idioma_legenda_ptbr'},
     "topico_curso.json":{0:'id_curso',1:'topico'},
     "topico_curso.json":{0:'id_curso',1:'topico'},
-    "topico.json":{0:'id_topico',1:'titulo',2:'url',3:'titulo_ptbr'}
+    "topico.json":{0:'id_topico',1:'titulo',2:'url',3:'titulo_ptbr'},
+    "mapa_idioma.json":{0:'idioma',1:'lingua'}
 }
 
 
@@ -76,4 +80,3 @@ with pd.ExcelWriter(name_xlsx_path, engine='xlsxwriter') as writer:
 print(f"Successfully created {name_xlsx_path} with multiple sheets.")
 
 
- 
